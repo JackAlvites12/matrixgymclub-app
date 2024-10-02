@@ -10,8 +10,6 @@ interface Props {
 
 export const DetailsCustomer = ({ clientData }: Props ) => {
 
-
-
     let convertDate;
 
     if( clientData?.fechaNacimiento ){

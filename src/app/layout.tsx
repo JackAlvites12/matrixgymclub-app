@@ -3,7 +3,7 @@ import { DM_Sans } from 'next/font/google'
 import "./globals.css";
 
 
-export const dmSans = DM_Sans({
+const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['200', '300', '400', '600', '700']
 })

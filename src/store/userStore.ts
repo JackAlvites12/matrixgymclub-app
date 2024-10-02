@@ -27,8 +27,8 @@ interface UserActions {
     login: ( body: LoginProps ) => Promise<void>,
     logout: ( router: AppRouterInstance ) => void,
     clearUserState: () => void,
-    handleCheckout: ( membership: Membership ) => Promise<unknown>
-    handleCheckoutPaypal: ( membership: Membership ) => Promise<unknown>
+    handleCheckout: ( membership: Membership ) => Promise<any>
+    handleCheckoutPaypal: ( membership: Membership ) => Promise<any>
     handleCheckoutStatus: ( value: boolean ) => void
 
 }
