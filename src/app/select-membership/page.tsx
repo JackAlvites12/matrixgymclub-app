@@ -28,7 +28,7 @@ export default function SelectMembershipPage(){
             .then( data => {
                 setMemberships( data )
             })
-            .catch( err => {
+            .catch(() => {
                 clearUserState()
             })
         
