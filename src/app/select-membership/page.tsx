@@ -14,7 +14,6 @@ import { ClientGuard } from "@/components/security/ClientGuard"
 export default function SelectMembershipPage(){
 
     const clearUserState = useUserStore( state => state.clearUserState )
-    const isClient = useUserStore( state => state.isClient )
     const isAuthenticated = useUserStore( store => store.isAuthenticated )
 
     const [ memberships, setMemberships ] = useState<Membership[]>([])

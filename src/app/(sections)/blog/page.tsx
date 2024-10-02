@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function blogPage(){
+export default function BlogPage(){
 
     const [ isSelected, setIsSelected ] = useState<boolean>( true )    
     

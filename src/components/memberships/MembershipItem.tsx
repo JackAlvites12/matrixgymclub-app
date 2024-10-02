@@ -1,5 +1,4 @@
 import { Membership } from "@/interfaces"
-import Image from "next/image"
 import { useRef } from "react";
 
 

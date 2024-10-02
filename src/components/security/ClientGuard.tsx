@@ -1,10 +1,13 @@
 import { getClientByUserId } from "@/helpers/getClientByUserId"
 import { useUserStore } from "@/store/userStore"
-import { useEffect, useState } from "react"
+import { ReactNode, useEffect, useState } from "react"
 import { ClientMessage } from "../messages/ClientMessage"
 
+interface ClientGuardProps {
+    children: ReactNode;
+  }
 
-export const ClientGuard = ({ children }: any) => {
+export const ClientGuard = ({ children }: ClientGuardProps ) => {
  
     const user = useUserStore( state => state.user )
     const isClient = useUserStore( state => state.isClient )
@@ -21,8 +24,8 @@ export const ClientGuard = ({ children }: any) => {
         if( !isMounted ) return 
 
         getClientByUserId( user?._id as string )
-            .then( data => handleCheckoutStatus( true ))
-            .catch( err => handleCheckoutStatus( false ))
+            .then(() => handleCheckoutStatus( true ))
+            .catch(() => handleCheckoutStatus( false ))
 
     }, [ isMounted ])
 

@@ -29,7 +29,7 @@ export interface Cliente {
     nombre: string,
     apellido: string,
     fechaNacimiento: Date,
-    edad: any,
+    edad: unknown,
     docIdentidad: number,
     genero: string
     domicilio: string,

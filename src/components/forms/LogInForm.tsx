@@ -25,11 +25,8 @@ export const LogInForm = () => {
 
         try {
           
-            const res = await login( data )
-  
-            // Mostrar mensaje en un sweetalert 
-            // console.log( res );
-  
+             await login( data )
+
             reset()
             router.push('/profile')
   

@@ -29,7 +29,7 @@ export const SignUpForm = () => {
         try {
           
           // Imprimir en un sweet alert el mensaje que devuelva el res 
-          const res = await signUp( data )
+          await signUp( data )
           router.push('/profile')
           
           reset()

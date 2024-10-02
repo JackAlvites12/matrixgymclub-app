@@ -1,5 +1,6 @@
 import { Sede } from "@/interfaces"
 import { SedeItem } from "./SedeItem"
+import { ReactNode } from "react"
 
 interface Props {
     sedes: Sede[]
@@ -11,7 +12,7 @@ export const SedeList = ({ sedes }: Props ) => {
     const sedesProvincia = sedes.filter( sede => sede.region === 'PROVINCIA')
 
 
-    const renderSedes = ( titulo: 'LIMA' | 'PROVINCIA', sedesRegion: Sede[] ): any => {
+    const renderSedes = ( titulo: 'LIMA' | 'PROVINCIA', sedesRegion: Sede[] ): ReactNode => {
 
         return (
             <SedeItem  titulo={ titulo } sedesRegion={ sedesRegion }/>

@@ -14,6 +14,4 @@ export const getAllMemberships = async () => {
         
     }
 
-    
-    
 }

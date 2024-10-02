@@ -27,8 +27,8 @@ interface UserActions {
     login: ( body: LoginProps ) => Promise<void>,
     logout: ( router: AppRouterInstance ) => void,
     clearUserState: () => void,
-    handleCheckout: ( membership: Membership ) => Promise<any>
-    handleCheckoutPaypal: ( membership: Membership ) => Promise<any>
+    handleCheckout: ( membership: Membership ) => Promise<unknown>
+    handleCheckoutPaypal: ( membership: Membership ) => Promise<unknown>
     handleCheckoutStatus: ( value: boolean ) => void
 
 }
@@ -104,7 +104,6 @@ const storeApi: StateCreator<UserState & UserActions, [["zustand/immer", never]]
     handleCheckout: async ( membership: Membership ) => {
 
         const res = await postCheckout( membership )
-
         return res
     },
 
