@@ -20,8 +20,100 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a, button{
+  cursor: pointer;
+}
+
 @layer utilities {
+
   .text-balance {
     text-wrap: balance;
   }
+
+  .section__client {
+    scrollbar-width: thin; 
+    scrollbar-color: yellow transparent; 
+  }
+  
+  .section__client::-webkit-scrollbar {
+    width: 2px; /* Ancho del scroll */
+  }
+
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .section__client::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background-color: yellow;
+    border-radius: 0px;
+  }
+  
+  .section__client::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .nav__container {
+    width: min(90%, 1200px);
+    --icon-toggle-img: url("/assets/bx-menu.svg");   
+    --transform-menu-links: translate(-100%);  
+  }
+
+  .nav__container:has(:checked) {
+    --icon-toggle-img: url("/assets/bx-x.svg");
+    --transform-menu-links: translate(0);  
+  }
+
+  .nav__list {
+    transform: var(--transform-menu-links);
+  }
+
+  .nav__toggle {
+    background-image: var(--icon-toggle-img); 
+  }
+
+  .nav__item > a {
+    position: relative;
+  }
+
+  .nav__item > a::after{
+    content: "";
+    position: absolute;
+    background-color: #facc15;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+  }
+
+  .nav__item > a:hover::after,
+  .nav__item > a.active::after{
+    width: 100%;
+  }
+
+  /* Animacion para contenedores */
+
+  .animado {
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  .mostrarArriba {
+    animation: mostrarArriba 1s;
+  
+  }
+
+  @keyframes mostrarArriba  {
+
+    0%{
+	    transform: translateX(80px); 
+    }
+
+    100%{
+	    transform: translateX(0); 
+    }	
+  }
+
+
+  
 }
