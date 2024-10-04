@@ -17,6 +17,14 @@ export const DetailsCustomer = ({ clientData }: Props ) => {
         convertDate = date.toISOString().split('T')[0]
     }
 
+    if(!clientData){
+        console.log('Cargando....')
+    }
+    if( clientData) {
+
+        console.log('Client data listo');
+
+    }    
 
 
   return (
