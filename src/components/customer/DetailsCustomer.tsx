@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { poppins } from '@/fonts';
 import { ClientData } from '@/interfaces'
 import { Card3D } from '../Card3D';
 import { NoDetailsCustomer } from '../messages/NoDetailsCustomer';
+
 
 interface Props {
     clientData: ClientData
 }
 
 export const DetailsCustomer = ({ clientData }: Props ) => {
+
+
+    const [ isMounted, setIsMounted ] = useState<boolean>( false )
 
     let convertDate;
 
@@ -17,15 +21,24 @@ export const DetailsCustomer = ({ clientData }: Props ) => {
         convertDate = date.toISOString().split('T')[0]
     }
 
-    if(!clientData){
-        console.log('Cargando....')
-    }
-    if( clientData) {
+    useEffect(() => {
+        const timer = setTimeout(() => {
 
-        console.log('Client data listo');
+          setIsMounted( true ); 
 
-    }    
+        }, 2000);
+    
 
+        return () => clearTimeout(timer);
+      }, []);
+    
+
+      if (!isMounted) {
+        return <div>Cargando datos del cliente...</div>;
+      }
+
+
+    
 
   return (
     <section className="mt-5 w-[80%] m-auto lg:mt-0">
