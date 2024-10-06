@@ -12,6 +12,7 @@ import { ClientData } from "@/interfaces"
 import { useUserStore } from "@/store/userStore"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+import { getAllMemberships } from "@/helpers/getAllMemberships"
 
 export default function ProfilePage(){
 
@@ -24,10 +25,12 @@ export default function ProfilePage(){
     const isAuthenticated = useUserStore( state => state.isAuthenticated )
     const logout          = useUserStore( state => state.logout )
     const handleCheckoutStatus = useUserStore( state => state.handleCheckoutStatus )
+    const clearUserState = useUserStore( state => state.clearUserState )
 
     useEffect(() => {
 
         setIsMounted( true )
+
         if( !user ) return
 
         const userId = user?._id;
@@ -37,12 +40,31 @@ export default function ProfilePage(){
                 setClientData( data )
                 handleCheckoutStatus( true )
             })
-            .catch( error => {
-                console.log( error )
+            .catch(() => {
                 handleCheckoutStatus( false )
             });
         
     }, [ user ])
+
+    useEffect(() => {
+
+        // Evaluamos si está autenticado... no hay de otra... esto de las validaciones nos hace pensar en código innecesario y poco entendible..
+        // Aqui practicamente lo que hacemos es que para evaluar si el token sigue existiendo primero disparamos un efecto para traer todas las 
+        //membresías... si eso falla es porque no hay token... en fin esa es su funcionalidad. 
+        getAllMemberships().then().catch( () =>  clearUserState() )
+    }, [])
+
+
+    useEffect(() => {
+
+        if ( !isMounted ) return
+
+        if ( !isAuthenticated ) {
+            console.log('No estás autenticado');
+            clearUserState(); 
+        }
+        
+    }, [ isAuthenticated, isMounted ]);
 
 
     if( !isMounted ) return <Loading />
