@@ -57,7 +57,7 @@ export default function MatrixGymApp() {
       <main className="animate__animated animate__fadeIn">
 
         <figure className="pt-[50px] xsm:pt-[100px] lg:pt-0 lg:min-h-screen">
-          <Image className="mt-10 lg:mt-0 lg:absolute lg-top-0 w-full" src="https://firebasestorage.googleapis.com/v0/b/matrixgym-club.appspot.com/o/portada-matrix.png?alt=media&token=fe781616-380d-4865-9457-7dae114aad72"  width={ 1800 } height={ 800 } alt="Portada MatrixGym" />0
+          <Image className="mt-10 lg:mt-0 lg:absolute lg-top-0 w-full" src="https://firebasestorage.googleapis.com/v0/b/matrixgym-club.appspot.com/o/portada-matrix.png?alt=media&token=fe781616-380d-4865-9457-7dae114aad72"  width={ 1800 } height={ 800 } alt="Portada MatrixGym" />
         </figure>
 
         <section ref={( el ) => addToAnimadosRef( el )} className=" mt-5 m-auto max-w-[415px] md:max-w-[650px] lg:mt-20 transition-all text-center p-5 lg:animado">

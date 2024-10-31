@@ -39,6 +39,7 @@ const storeApi: StateCreator<UserState & UserActions, [["zustand/immer", never]]
     user: null,
     isAuthenticated: false,
     isClient: false,
+    
     signUp: async ( body: SignUpProps ) =>  {
 
         const res = await postRegisterUser( body )
